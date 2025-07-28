@@ -6,4 +6,6 @@ function App() {
     )
 }
 
+// Комментарий
+
 export default App
