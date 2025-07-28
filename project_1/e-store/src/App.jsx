@@ -45,11 +45,11 @@ const productData = [
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Catalog />
       <Footer />
-    </div>
+    </>
   );
 }
 
@@ -98,25 +98,24 @@ function Catalog() {
   return (
     <main className="Catalog">
       <ul className="products">
-        <Product
-          name="Smartphone X"
-          photoName="/smartphone.png"
-          price={800}
-          description="Latest model with stunning display."
-        />
+        {productData.map((item) => (
+          <Product item={item} key={item.name} />
+        ))}
       </ul>
     </main>
   );
 }
 
-function Product(props) {
+function Product({ item }) {
   return (
-    <li className="product">
-      <img src={props.photoName} alt={props.name} />
+    <li className={`product ${item.soldOut === true ? "archived" : ""}`}>
+      <img src={item.photoName} alt={item.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <span>{props.price + 15}</span>
+        <h3>{item.name}</h3>
+        <p>{item.description}</p>
+        <span className={item.soldOut === true ? "price--archived" : ""}>
+          {item.soldOut === false ? item.price : "SOLD-OUT"}
+        </span>
       </div>
     </li>
   );
@@ -127,3 +126,5 @@ function Footer() {
 }
 
 export default App;
+
+// {item.soldOut === true ? "price--archived" : ""}

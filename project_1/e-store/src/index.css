@@ -206,3 +206,12 @@ body {
 .btn:hover {
   background-color: #005bb5;
 }
+
+.archived {
+    opacity: 50%;
+}
+
+.price--archived {
+    color: red !important;
+    font-weight: 700 !important;
+}
