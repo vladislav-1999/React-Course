@@ -1,11 +1,5 @@
 function App() {
-    return (
-        <div>
-            
-        </div>
-    )
+    return <div>Hello world!</div>;
 }
-
-// Комментарий
 
 export default App
