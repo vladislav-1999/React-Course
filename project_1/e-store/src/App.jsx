@@ -1,3 +1,5 @@
+import "./index.css";
+
 const productData = [
   {
     name: "Laptop Pro",
@@ -43,8 +45,6 @@ const productData = [
   },
 ];
 
-
-
 function App() {
   return (
     <div>
@@ -62,12 +62,10 @@ function Header() {
 
   const isOpen = hour >= openHours && hour <= closeHours;
 
-  console.log(isOpen);
-
   return (
-    <header>
+    <header className="header">
       <h1>Electronic store</h1>
-      <nav>
+      <nav className="nav">
         <ul>
           <li>
             <a href="#">Home</a>
@@ -83,7 +81,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <div>
+      <div className="working-hours">
         {isOpen ? (
           <p>
             Мы открыты. Часы работы: {openHours}:00 - {closeHours}:00
@@ -100,8 +98,8 @@ function Header() {
 
 function Catalog() {
   return (
-    <main>
-      <ul>
+    <main className="Catalog">
+      <ul className="products">
         <Product />
       </ul>
     </main>
@@ -112,7 +110,7 @@ function Product() {
   const products = { ...productData };
 
   return (
-    <li>
+    <li className="product">
       <img src={products[0].photoName} alt={products[1].name} />
       <div>
         <h3>{products[0].name}</h3>
@@ -124,8 +122,7 @@ function Product() {
 }
 
 function Footer() {
-  return <footer>Footer</footer>;
+  return <footer className="footer">Footer</footer>;
 }
 
 export default App;
-
