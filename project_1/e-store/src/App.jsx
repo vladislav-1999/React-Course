@@ -1,5 +1,3 @@
-import "./index.css";
-
 const productData = [
   {
     name: "Laptop Pro",
@@ -100,22 +98,25 @@ function Catalog() {
   return (
     <main className="Catalog">
       <ul className="products">
-        <Product />
+        <Product
+          name="Smartphone X"
+          photoName="/smartphone.png"
+          price={800}
+          description="Latest model with stunning display."
+        />
       </ul>
     </main>
   );
 }
 
-function Product() {
-  const products = { ...productData };
-
+function Product(props) {
   return (
     <li className="product">
-      <img src={products[0].photoName} alt={products[1].name} />
+      <img src={props.photoName} alt={props.name} />
       <div>
-        <h3>{products[0].name}</h3>
-        <p>{products[0].description}</p>
-        <span>{products[0].price}</span>
+        <h3>{props.name}</h3>
+        <p>{props.description}</p>
+        <span>{props.price + 15}</span>
       </div>
     </li>
   );
